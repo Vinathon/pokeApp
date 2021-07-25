@@ -56,12 +56,12 @@ async function displayData(pokemon) {
       cardTitle.innerHTML = element.name;
 
       let cardAbilities = document.createElement("p");
-      cardTitle.setAttribute("class", "p");
-      cardTitle.innerHTML = element.abilities;
+      cardAbilities.setAttribute("class", "p");
+      cardAbilities.innerHTML = "Abilities: "+(element.abilities).slice(0,3);
 
       let cardMoves = document.createElement("p");
-      cardTitle.setAttribute("class", "p");
-      cardTitle.innerHTML = element.moves;
+      cardMoves.setAttribute("class", "p");
+      cardMoves.innerHTML = "Moves: "+(element.moves).slice(0,3);
 
       cardBody.append(cardTitle, cardAbilities, cardMoves);
       card.append(cardImg, cardBody);
