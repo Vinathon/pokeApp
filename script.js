@@ -41,7 +41,7 @@ async function displayData(pokemon) {
     row.style.margin = "30px 30px";
     pokemon.forEach((element) => {
       let col = document.createElement("div");
-      col.setAttribute("class", "col-4");
+      col.setAttribute("class", "col-sm-4");
 
       let card = document.createElement("div");
       card.setAttribute("class", "card h-80 mb-3");
