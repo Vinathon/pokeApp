@@ -33,16 +33,19 @@ async function displayData(pokemon) {
   try {
     console.log("inside display :", pokemon);
     let body = document.body;
+     body.style.padding = "60px 30px";
+     
     let container = document.createElement("div");
     container.setAttribute("class", "container");
     let row = document.createElement("div");
     row.setAttribute("class", "row");
+    row.style.margin = "30px 30px";
     pokemon.forEach((element) => {
       let col = document.createElement("div");
       col.setAttribute("class", "col-4");
 
       let card = document.createElement("div");
-      card.setAttribute("class", "card h-100 mb-3");
+      card.setAttribute("class", "card h-80 mb-3");
 
       let cardBody = document.createElement("div");
       cardBody.setAttribute("class", "card-body");
