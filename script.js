@@ -59,11 +59,15 @@ async function displayData(pokemon) {
       cardAbilities.setAttribute("class", "p");
       cardAbilities.innerHTML = "Abilities: "+(element.abilities).slice(0,3);
 
+      let cardWeight = document.createElement("p");
+      cardWeight.setAttribute("class", "p");
+      cardWeight.innerHTML = "Weight: "+(element.weight);
+
       let cardMoves = document.createElement("p");
       cardMoves.setAttribute("class", "p");
       cardMoves.innerHTML = "Moves: "+(element.moves).slice(0,3);
 
-      cardBody.append(cardTitle, cardAbilities, cardMoves);
+      cardBody.append(cardTitle, cardAbilities, cardMoves, cardWeight);
       card.append(cardImg, cardBody);
       col.append(card);
       row.append(col);
