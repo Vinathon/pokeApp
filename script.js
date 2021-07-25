@@ -16,8 +16,7 @@ async function getPokemon(allPokemon) {
       let data = await resp.json();
       //   let image = "https://pokeres.bastionbot.org/images/pokemon/"+data.id+".png";
       let image = data.sprites.other['official-artwork']['front_default'];
-      console.log("image > ",image)
-      let name = element.name;
+      let name = (element.name).toUpperCase();
       let weight = data.weight;
       let abilities = data.abilities.map((element) => element.ability.name);
       let moves = data.moves.map((element) => element.move.name);
@@ -35,6 +34,8 @@ async function displayData(pokemon) {
   try {
     let body = document.body; 
     body.style.padding = "60px 30px";
+    body.style.backgroundColor = "black";
+
 
     let container = document.createElement("div");
     container.setAttribute("class", "container");
@@ -47,6 +48,7 @@ async function displayData(pokemon) {
 
       let card = document.createElement("div");
       card.setAttribute("class", "card h-80 mb-3");
+      card.onclick = "getDetails("+element+")";
 
       let cardBody = document.createElement("div");
       cardBody.setAttribute("class", "card-body");
@@ -57,6 +59,7 @@ async function displayData(pokemon) {
 
       let cardTitle = document.createElement("h2");
       cardTitle.setAttribute("class", "h2");
+      cardTitle.style.textAlign = "center";
       cardTitle.innerHTML = element.name;
 
       let cardAbilities = document.createElement("p");
@@ -79,7 +82,14 @@ async function displayData(pokemon) {
     container.append(row);
 
     body.append(container);
+
+
+
   } catch (error) {
     console.log("Error while displaying data >>> " + e);
   }
+}
+
+function getDetails(element){
+    console.log("hey >> ",element)
 }
