@@ -14,7 +14,8 @@ async function getPokemon(allPokemon) {
     for (element of allPokemon) {
       let resp = await fetch(element.url);
       let data = await resp.json();
-      let image = "https://pokeres.bastionbot.org/images/pokemon/"+data.id+".png";
+    //   let image = "https://pokeres.bastionbot.org/images/pokemon/"+data.id+".png";
+    let image = data.sprites.front_default;
       let name = element.name;
       let weight = data.weight;
       let abilities = data.abilities.map((element) => element.ability.name);
