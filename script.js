@@ -31,7 +31,6 @@ async function getPokemon(allPokemon) {
 
 async function displayData(pokemon) {
   try {
-    console.log("inside display :", pokemon);
     let body = document.body;
      body.style.padding = "60px 30px";
      
