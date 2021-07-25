@@ -14,8 +14,9 @@ async function getPokemon(allPokemon) {
     for (element of allPokemon) {
       let resp = await fetch(element.url);
       let data = await resp.json();
-    //   let image = "https://pokeres.bastionbot.org/images/pokemon/"+data.id+".png";
-    let image = data.sprites.front_default;
+      //   let image = "https://pokeres.bastionbot.org/images/pokemon/"+data.id+".png";
+      let image = data.sprites.other['official-artwork']['front_default'];
+      console.log("image > ",image)
       let name = element.name;
       let weight = data.weight;
       let abilities = data.abilities.map((element) => element.ability.name);
@@ -32,9 +33,9 @@ async function getPokemon(allPokemon) {
 
 async function displayData(pokemon) {
   try {
-    let body = document.body;
-     body.style.padding = "60px 30px";
-     
+    let body = document.body; 
+    body.style.padding = "60px 30px";
+
     let container = document.createElement("div");
     container.setAttribute("class", "container");
     let row = document.createElement("div");
@@ -60,15 +61,15 @@ async function displayData(pokemon) {
 
       let cardAbilities = document.createElement("p");
       cardAbilities.setAttribute("class", "p");
-      cardAbilities.innerHTML = "Abilities: "+(element.abilities).slice(0,3);
+      cardAbilities.innerHTML = "Abilities: " + element.abilities.slice(0, 3);
 
       let cardWeight = document.createElement("p");
       cardWeight.setAttribute("class", "p");
-      cardWeight.innerHTML = "Weight: "+(element.weight);
+      cardWeight.innerHTML = "Weight: " + element.weight;
 
       let cardMoves = document.createElement("p");
       cardMoves.setAttribute("class", "p");
-      cardMoves.innerHTML = "Moves: "+(element.moves).slice(0,3);
+      cardMoves.innerHTML = "Moves: " + element.moves.slice(0, 3);
 
       cardBody.append(cardTitle, cardAbilities, cardMoves, cardWeight);
       card.append(cardImg, cardBody);
